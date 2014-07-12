@@ -1,6 +1,11 @@
 public class Fitbit_Callout{
     
     public static void fitbitCallout(ID userId, Integer days){
+        List<OAuthService__c> l = [SELECT name FROM OAuthService__c];
+        if (l.size() == 0) {
+            return;
+        }
+        String keyName = l[0].name;
         List<Fitbit_Day__c> fDays = new List<Fitbit_Day__c>();
         DateTime myDate = System.now();
         for (integer x = 0; x < days; x++){
@@ -12,7 +17,7 @@ public class Fitbit_Callout{
             req.setEndpoint('http://api.fitbit.com/1/user/-/activities/date/'+d+'.json');
             System.debug('endpoint ' + req.getEndpoint());
             OAuth oa = new OAuth();
-            if(!oa.setService('Fitbit',userId)) {
+            if(!oa.setService(keyName,userId)) {
                 System.debug(oa.message);
             } else {
                 oa.sign(req);

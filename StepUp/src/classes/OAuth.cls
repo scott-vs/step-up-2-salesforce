@@ -161,7 +161,17 @@ global class OAuth {
 		List<OAuth_Token__c> l =
 			[SELECT OAuth_Service__r.name, isAccess__c, Owner__r.name FROM OAuth_Token__c 
 			 WHERE OAuth_Service__r.name= :serviceName AND isAccess__c = true];
-			 
+		List<User> result = new List<User>();
+		for(OAuth_Token__c t : l) {
+			result.add(t.owner__r);
+		}
+		return result;
+	}
+    
+    public List<User> getUsersOfService() {
+		List<OAuth_Token__c> l =
+			[SELECT OAuth_Service__r.name, isAccess__c, Owner__r.name FROM OAuth_Token__c 
+			 WHERE isAccess__c = true];
 		List<User> result = new List<User>();
 		for(OAuth_Token__c t : l) {
 			result.add(t.owner__r);

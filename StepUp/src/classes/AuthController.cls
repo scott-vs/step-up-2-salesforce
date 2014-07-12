@@ -30,16 +30,8 @@ public with sharing class AuthController {
         authorizedUser = false;
         List<OAuth_Token__c> myTokens = [SELECT Id FROM OAuth_Token__c WHERE isAccess__c = true AND Owner__c =: UserInfo.getUserID()]; 
         
-        //system.debug('myTokens ' + myTokens);
         if (myTokens.size()>0){
             authorizedUser = true;
-            /*myFDays = [SELECT Date__c,Fairly_Active_Minutes__c,Floors__c,
-                      			Lightly_Active_Minutes__c,Sedentary_Minutes__c,
-                      			Very_Active_Minutes__c 
-                      FROM Fitbit_Day__c 
-                      WHERE User__c =: UserInfo.getUserID() 
-                      ORDER BY Date__c DESC NULLS FIRST];
-            system.debug('myDays ' + myFDays); */
         }
     
     }
@@ -61,14 +53,20 @@ public with sharing class AuthController {
     
     public PageReference authorize() {
         OAuth oa = new OAuth();
-        authUrl = oa.newAuthorization('Fitbit');
-        System.debug(authUrl);
-        if(authUrl==null) {
-                this.message = oa.message;
-                return null;
+        List<OAuthService__c> l = [SELECT name FROM OAuthService__c];
+        if (l.size() > 0) {
+            authUrl = oa.newAuthorization(l[0].name);
+            System.debug(authUrl);
+            if(authUrl==null) {
+                    this.message = oa.message;
+                    return null;
+            } else {
+                    
+                    return new PageReference(authUrl);
+            }
         } else {
-                
-                return new PageReference(authUrl);
+            this.message = 'You must set up a fitbit api key first';
+            return null;
         }
     }
     
