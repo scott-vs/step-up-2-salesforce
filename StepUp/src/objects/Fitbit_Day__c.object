@@ -51,66 +51,117 @@
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
     <fields>
-        <fullName>Access_Token_URL__c</fullName>
+        <fullName>Date__c</fullName>
         <externalId>false</externalId>
-        <label>Access Token URL</label>
-        <length>255</length>
+        <label>Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>External_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>External_ID</label>
+        <length>100</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Fairly_Active_Minutes__c</fullName>
+        <externalId>false</externalId>
+        <label>Fairly Active Minutes</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Authorization_URL__c</fullName>
+        <fullName>Floors__c</fullName>
         <externalId>false</externalId>
-        <label>Authorization URL</label>
-        <length>255</length>
+        <label>Floors</label>
+        <precision>18</precision>
         <required>false</required>
+        <scale>0</scale>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Consumer_Key__c</fullName>
+        <fullName>Lightly_Active_Minutes__c</fullName>
         <externalId>false</externalId>
-        <label>Consumer Key</label>
-        <length>255</length>
+        <label>Lightly Active Minutes</label>
+        <precision>18</precision>
         <required>false</required>
+        <scale>0</scale>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Consumer_Secret__c</fullName>
+        <fullName>Sedentary_Minutes__c</fullName>
         <externalId>false</externalId>
-        <label>Consumer Secret</label>
-        <length>255</length>
+        <label>Sedentary Minutes</label>
+        <precision>18</precision>
         <required>false</required>
+        <scale>0</scale>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Request_Token_URL__c</fullName>
+        <fullName>Steps__c</fullName>
         <externalId>false</externalId>
-        <label>Request Token URL</label>
-        <length>255</length>
+        <label>Steps</label>
+        <precision>18</precision>
         <required>false</required>
+        <scale>0</scale>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
-    <label>OAuth Service</label>
+    <fields>
+        <fullName>User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Fitbit_Days</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Very_Active_Minutes__c</fullName>
+        <externalId>false</externalId>
+        <label>Very Active Minutes</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Fitbit Day</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Date__c</columns>
+        <columns>Steps__c</columns>
+        <columns>User__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
     <nameField>
-        <label>Service Name</label>
-        <type>Text</type>
+        <displayFormat>FD-{0000}</displayFormat>
+        <label>Fitbit Day Name</label>
+        <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>OAuth Services</pluralLabel>
+    <pluralLabel>Fitbit Days</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
