@@ -1,3 +1,12 @@
+# Step Up 2 Salesforce
+
+The fitness app for SFDC, as made at the Summer of Hacks 2014 in NYC.
+
+Forked from <https://github.com/jesperfj/sfdc-oauth-playground>.
+
+More details to follow. Below is the Readme file from the OAuth Playground.
+
+
 # Apex OAuth Consumer with Test Playground
 
 This project was copied over from <http://code.google.com/p/sfdc-oauth-playground/>, since I do all my projects on github now. I don't expect to make any changes, so the two locations will likely stay in sync but this is now the main project home.
