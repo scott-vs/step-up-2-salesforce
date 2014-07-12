@@ -19,5 +19,6 @@ global with sharing class Fitbit_Batch implements Database.Batchable<sObject>, D
     
     global void finish(Database.BatchableContext BC)
     {
+        Fitbit_ChatterPost.sendOutTheMadProps();
     }
 }
