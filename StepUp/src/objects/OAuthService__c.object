@@ -49,7 +49,7 @@
     <enableActivities>true</enableActivities>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <fields>
         <fullName>Access_Token_URL__c</fullName>
         <externalId>false</externalId>
@@ -100,7 +100,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>OAuth Service</label>
+    <label>Fitbit Key</label>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
@@ -110,7 +110,7 @@
         <label>Service Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>OAuth Services</pluralLabel>
+    <pluralLabel>Fitbit Keys</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

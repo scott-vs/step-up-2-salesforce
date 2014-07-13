@@ -49,7 +49,7 @@
     <enableActivities>true</enableActivities>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <fields>
         <fullName>Date__c</fullName>
         <externalId>false</externalId>

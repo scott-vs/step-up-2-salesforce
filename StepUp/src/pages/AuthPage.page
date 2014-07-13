@@ -1,28 +1,74 @@
-<apex:page controller="AuthController">
-    <apex:form >
-        <apex:pageBlock >
-            <apex:pageBlockSection rendered="{!NOT(authorizedUser)}">
-            	<apex:commandButton action="{!authorize}" value="Authorize Your Fibit Account" id="authButton"/>
-       			 <p/>
-     			 <apex:outputText rendered="{!message!=null}" value="Problem: {!message}"/>
-            </apex:pageBlockSection>
-        	<apex:pageBlockSection rendered="{!authorizedUser}">
-                <apex:pageBlockSectionItem >
-               	 You are good!
-                </apex:pageBlockSectionItem>
-                <apex:pageBlockSectionItem > test 2</apex:pageBlockSectionItem>
-                <apex:repeat value="{!myFDays}" var="myDay" id="theRepeat2">
-                    <apex:pageBlockSectionItem >
-                    	<apex:outputLabel >Day:</apex:outputLabel>
-                        <apex:outputField value="{!myDay.Date__c}"/> 
-                    </apex:pageBlockSectionItem>
-                    <apex:pageBlockSectionItem >
-                    	<apex:outputLabel >Steps:</apex:outputLabel>
-                        <apex:outputField value="{!myDay.Steps__c}"/> 
-                    </apex:pageBlockSectionItem>
-                </apex:repeat>
-            </apex:pageBlockSection>
-        </apex:pageBlock>
+<apex:page controller="AuthController" sidebar="false" showHeader="false" standardStylesheets="false">
+    <apex:includeScript value="{!URLFOR($Resource.jQuery)}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.bootstrap, 'bootstrap-3.2.0-dist/css/bootstrap.min.css')}"/>    
+    <apex:stylesheet value="{!URLFOR($Resource.fontawesome)}"/>
+    <apex:includeScript value="{!URLFOR($Resource.bootstrap, 'bootstrap-3.2.0-dist/js/bootstrap.min.js')}"/>
+    <style type="text/css">
+        body
+        {
+            text-align: center;
+        }
+
+        .container
+        {
+            margin-left: auto;
+            margin-right: auto;
+            position: center;
+        }
+        img
+        {
+            margin: 50px 0;            
+          
+            margin-left: auto;
+            margin-right: auto;
+            position: center;
+            
+        }
+        authButton
+        {
+           position: center;          
+        }
+         centerBox
+        {
+       
+                    
+        position: center; 
+                }    
+    </style>
+
+    <div class="container">
+    
+          <div class="centerBox" style="margin-top:25%" >             
+          
+          <div class="fitbitImg">
+                <apex:image url="//static3.fitbit.com/simple.b-dis-png.h76d53d8e6a0653b38326a825b2b9cf57.pack?items=%2Fimages%2Fcommon%2Fbg_branding_b.png" styleClass="img-responsive"/>
+              </div>    
+              
+              <div class="authButton">              
+              <apex:form >
+       
+            <!-- For those who have not linked to fitbit -->
+            <apex:outputPanel rendered="{!NOT(authorizedUser)}">
+              
+                    
+                     
+                         <apex:commandButton action="{!authorize}" value="Authorize Your Fibit Account" id="authButton" styleClass="btn btn-lg btn-info"/>
+                     
+                    
+                     <apex:outputText rendered="{!message!=null}" value="Problem: {!message}"/>
+             
+            </apex:outputPanel>            
+            
+            <!-- For those who have linked to fitbit -->
+            <apex:outputPanel rendered="{!authorizedUser}">
+                You are connected to FitBit. Let's get walking!
+           </apex:outputPanel>
+       
         
     </apex:form>
+    
+    <apex:image id="theImage" value="{!$Resource.Pic}" styleClass="img-responsive" width="250px"/>
+    </div>    
+    </div>
+      </div>
 </apex:page>

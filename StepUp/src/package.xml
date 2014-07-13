@@ -5,6 +5,8 @@
         <members>AuthController</members>
         <members>Fitbit_Batch</members>
         <members>Fitbit_Callout</members>
+        <members>Fitbit_ChatterPost</members>
+        <members>Fitbit_NightlyBatch_Schedule</members>
         <members>OAuth</members>
         <members>TestController</members>
         <name>ApexClass</name>
@@ -13,6 +15,9 @@
         <members>ApiTestPage</members>
         <members>AuthPage</members>
         <members>CompleteAuth</members>
+        <members>contacts</members>
+        <members>sf1Frontpage</members>
+        <members>timeline</members>
         <name>ApexPage</name>
     </types>
     <types>
@@ -56,9 +61,18 @@
     <types>
         <members>API_Tester</members>
         <members>Authorize</members>
+        <members>Daily_Winners</members>
         <members>Fitbit_Day__c</members>
         <members>OAuthService__c</members>
+        <members>asherasher</members>
+        <members>contacts</members>
         <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Best_Practice_Service_Dashboards</members>
+        <members>Sales_Marketing_Dashboards</members>
+        <members>Sales_Marketing_Dashboards/FitForce1_Leaderboard</members>
+        <name>Dashboard</name>
     </types>
     <types>
         <members>Fitbit_Day__c-Fitbit Day Layout</members>
@@ -71,6 +85,22 @@
         <members>Fitbit_Day__c.All</members>
         <members>OAuthService__c.All</members>
         <name>ListView</name>
+    </types>
+    <types>
+        <members>Step_Up</members>
+        <members>Step_Up/Last_30_Day_Leaderboard</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>Fitbit_Days</members>
+        <name>ReportType</name>
+    </types>
+    <types>
+        <members>Pic</members>
+        <members>bootstrap</members>
+        <members>fontawesome</members>
+        <members>jQuery</members>
+        <name>StaticResource</name>
     </types>
     <version>29.0</version>
 </Package>
