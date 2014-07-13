@@ -5,17 +5,92 @@
     <apex:stylesheet value="{!URLFOR($Resource.fontawesome)}"/>
     <apex:includeScript value="{!URLFOR($Resource.bootstrap, 'bootstrap-3.2.0-dist/js/bootstrap.min.js')}"/>
 
+    <style tyle="text/css">
+        .alert-purple { border-color: #694D9F;background: #694D9F;color: #fff; }
+        .alert-info-alt { border-color: #B4E1E4;background: #81c7e1;color: #fff; }
+        .alert-danger-alt { border-color: #B63E5A;background: #E26868;color: #fff; }
+        .alert-warning-alt { border-color: #F3F3EB;background: #E9CEAC;color: #fff; }
+        .alert-success-alt { border-color: #19B99A;background: #20A286;color: #fff; }
+        .glyphicon { margin-right:10px; }
+        .alert a {color: gold;}
+        .alert {margin-top: 25%; margin-left: 15%; margin-right: 15%;}
+        
+        @import "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css";
+        @import "http://fonts.googleapis.com/css?family=Roboto:400,500";
+        
+        .box > .icon { text-align: center; position: relative; }
+        .box > .icon > .image { position: relative; z-index: 2; margin: auto; width: 88px; height: 88px; border: 8px solid white; line-height: 88px; border-radius: 50%; vertical-align: middle; background: #{! IF (authSuccess, '81c7e1', 'E9CEAC' ) }; }
+        .box > .icon:hover > .image { background: #{! IF (authSuccess, 'B4E1E4', 'B63E5A' ) }; }
+        .box > .icon > .image > span { font-size: 36px !important; color: #fff !important; margin-top: 18px; margin-left: aut0; margin-right: auto;  }
+        .box > .icon:hover > .image > span { color: white !important; }
+        .box > .icon > .info { margin-top: -24px; background: #{! IF (authSuccess, '81c7e1', 'E9CEAC' ) }; border: 1px solid #e0e0e0; padding: 15px 0 10px 0; }
+        .box > .icon:hover > .info { background: rgba(0, 0, 0, 0.04); border-color: #e0e0e0; color: white; }
+        .box > .icon > .info > h3.title { font-family: "Roboto",sans-serif !important; font-size: 16px; color: #222; font-weight: 500; }
+        .box > .icon > .info > p { font-family: "Roboto",sans-serif !important; font-size: 13px; color: #666; line-height: 1.5em; margin: 20px;}
+        .box > .icon:hover > .info > h3.title, .box > .icon:hover > .info > p, .box > .icon:hover > .info > .more > a { color: #222; }
+        .box > .icon > .info > .more a { font-family: "Roboto",sans-serif !important; font-size: 12px; color: #222; line-height: 12px; text-transform: uppercase; text-decoration: none; }
+        .box > .icon:hover > .info > .more > a { color: #fff; padding: 6px 8px; background-color: #63B76C; }
+        .box .space { height: 30px; }
+        
+        .centerBox {position: center;}
+        
+        img
+        {
+            margin: 15px 0;            
+          
+            margin-left: auto;
+            margin-right: auto;
+            position: center;
+            
+        }
+    </style>
+
+
     <div class="row"><div class="col-sm-10 col-sm-offset-1">
-    <div class="alert alert-{! IF (authSuccess, 'success', 'danger' ) }" role="alert">
-        <div class="row"><div class="col-sm-10 col-sm-offset-1">
-        <h3>
-            <span class="glyphicon glyphicon-{! IF (authSuccess, 'ok', 'warning-sign' ) }"><span>
-            <apex:outputText rendered="{!authSuccess}" value="Fitbit Authorization Successful. Completing Authorization ..."/>
-            <apex:outputText rendered="{! NOT(authSuccess)}" value="Oops ... something went wrong.  Not Authorized: {!message}"/>
-        </h3>
-        </div></div>
+    
+          <div class="centerBox" style="margin-top:25%" >             
+              <div class="fitbitImg">
+                  <apex:image url="//static3.fitbit.com/simple.b-dis-png.h76d53d8e6a0653b38326a825b2b9cf57.pack?items=%2Fimages%2Fcommon%2Fbg_branding_b.png" styleClass="img-responsive"/>
+              </div>
+          </div>
+    
+            <div class="box">                           
+                <div class="icon">
+                    <div class="image"><span class="glyphicon glyphicon-{! IF (authSuccess, 'certificate', 'warning-sign' ) }"></span></div>
+                    <div class="info">
+                        <h3 class="title">
+                            <apex:outputText rendered="{!authSuccess}" value="Fitbit Authorization Successful!"/>
+                            <apex:outputText rendered="{! NOT(authSuccess)}" value="Oops ... something went wrong."/>
+                        </h3>
+                        <p>
+                            <apex:outputText rendered="{!authSuccess}" value="Completing Authorization ..."/>
+                            <apex:outputText rendered="{! NOT(authSuccess)}" value="Not Authorized: {!message}"/>
+                        </p>
+                        <div class="more">
+                  
+                        </div>
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div> 
+
+            <!--
+            <div class="alert alert-{! IF (authSuccess, 'info', 'danger' ) }-alt alert-dismissable">
+                <span class="glyphicon glyphicon-{! IF (authSuccess, 'certificate', 'warning-sign' ) }"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button><strong>
+                        <apex:outputText rendered="{!authSuccess}" value="Fitbit Authorization Successful!"/>
+                        <apex:outputText rendered="{! NOT(authSuccess)}" value="Oops ... something went wrong."/>
+                    
+                    </strong
+                    <apex:outputText rendered="{!authSuccess}" value="Completing Authorization ..."/>
+                    <apex:outputText rendered="{! NOT(authSuccess)}" value="Not Authorized: {!message}"/>
+                        
+                </div>
+             --!
+
     </div>
-    <apex:outputLink value="{! $Page.timeline}">Go to Daily Winners</apex:outputLink>
+    <!-- <apex:outputLink value="{! $Page.timeline}">Go to Daily Winners</apex:outputLink> -->
     </div></div>
     
     <script type="text/javascript">
