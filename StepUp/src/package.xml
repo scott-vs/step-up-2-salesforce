@@ -69,12 +69,6 @@
         <name>CustomTab</name>
     </types>
     <types>
-        <members>Best_Practice_Service_Dashboards</members>
-        <members>Sales_Marketing_Dashboards</members>
-        <members>Sales_Marketing_Dashboards/FitForce1_Leaderboard</members>
-        <name>Dashboard</name>
-    </types>
-    <types>
         <members>Fitbit_Day__c-Fitbit Day Layout</members>
         <members>OAuthService__c-OAuth Service Layout</members>
         <members>OAuth_Token__c-OAuth Token Layout</members>
@@ -85,15 +79,6 @@
         <members>Fitbit_Day__c.All</members>
         <members>OAuthService__c.All</members>
         <name>ListView</name>
-    </types>
-    <types>
-        <members>Step_Up</members>
-        <members>Step_Up/Last_30_Day_Leaderboard</members>
-        <name>Report</name>
-    </types>
-    <types>
-        <members>Fitbit_Days</members>
-        <name>ReportType</name>
     </types>
     <types>
         <members>Pic</members>
