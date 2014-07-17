@@ -1,15 +1,25 @@
-repository-10
-=============
-
 # Step Up 2 Salesforce
 
 The fitness app for SFDC, as made at the Summer of Hacks 2014 in NYC.
 
 Forked from <https://github.com/jesperfj/sfdc-oauth-playground>.
 
-More details to follow. Below is the Readme file from the OAuth Playground.
+This app is still a work in progress, but if you want to play around with it right now in a dev org, here's how to get up and running:
 
-(Commit Challange 1!)
+1. Register your app at <http://dev.fitbit.com>. Give the app read-only access and no callback URL is needed.
+* Deploy package into your org.
+* Enable the Step Up app for your user profile.
+* Enable "Fitbit Keys" and "Link to Fitbit" tabs for your user profile.
+* Go to "Fitbit Keys" tab and enter your Fitbit API creditentials. 
+* Schedule the "Fitbit_NightlyBatch_Schedule" Apex Class to run every night, ideally around 4:00 am.
+* Setup -> Security -> Remote site settings and add the https://api.fitbit.com/ endpoint
+* Setup -> Administer -> Mobile Administration -> Mobile Navigation and add "Link to Fitbit" to the mobile navbar.
+* Boot up Salesforce1 and go to "Link to Fitbit" tab to OAuth into your Fitbit account.
+
+The data should be synced every night and you'll get a Chatter post giving you props if you had the most steps the previous day.
+
+More to come as I polish up this app, but for now, here is the README file for the SFDC OAuth Playground app.
+
 
 
 # Apex OAuth Consumer with Test Playground
